@@ -38,6 +38,5 @@ public class BookService {
          
          book.selling();
          System.out.printf("<구매 완료> \n제목: %s\n저자: %s\n", book.getTitle(), book.getAuthor());
-    
     }
 }

@@ -24,7 +24,7 @@ public class BookRepository {
     
     public Book findByTitle(String title) throws Exception {
     	for (int i = 0; i < bookList.size(); i++) {
-			if(bookList.get(i).getTitle().equals(title))
+			if(title.replaceAll(" ","").contains(bookList.get(i).getTitle().replaceAll(" ","")))
 				return bookList.get(i);
 		}
     	throw new Exception("검색 결과가 없습니다.");
@@ -32,7 +32,7 @@ public class BookRepository {
     
     public Book findByAuthor(String author) throws Exception {
     	for (int i = 0; i < bookList.size(); i++) {
-			if(bookList.get(i).getAuthor().equals((author)))
+			if(author.replaceAll(" ","").contains(bookList.get(i).getAuthor().replaceAll(" ","")))
 				return bookList.get(i);
 		}
     	throw new Exception("검색 결과가 없습니다.");
