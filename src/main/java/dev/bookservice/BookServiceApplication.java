@@ -11,8 +11,8 @@ import dev.bookservice.util.MyLogger;
 public class BookServiceApplication {
     public static void main(String[] args) {
     	BookService bookService = null;
-    	new MyLogger();
-	    Logger logger = MyLogger.getLog();
+
+	    Logger logger = new MyLogger().getLog();
     	   
     	try {
     	    bookService = new BookService();

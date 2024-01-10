@@ -30,7 +30,7 @@ public class MyLogger {
 		
 			
 		}
-	public static Logger getLog() {
+	public Logger getLog() {
 		return logger;
 	}
 }
