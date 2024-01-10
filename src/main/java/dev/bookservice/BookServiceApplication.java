@@ -1,16 +1,19 @@
 package dev.bookservice;
 
-import java.util.LinkedHashSet;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import dev.bookservice.service.BookService;
 import dev.bookservice.util.Color;
+import dev.bookservice.util.MyLogger;
 
 
 public class BookServiceApplication {
     public static void main(String[] args) {
     	BookService bookService = null;
-    	
+    	new MyLogger();
+	    Logger logger = MyLogger.getLog();
+    	   
     	try {
     	    bookService = new BookService();
     	} catch (Exception e) {
@@ -50,6 +53,7 @@ public class BookServiceApplication {
 	                    System.out.println("1, 2, 3 중에 입력해주세요.");
 	            }}
 	            catch(Exception e) {
+	             	logger.warning(e.getMessage());
 	            	System.out.println("\n"+Color.RED +e.getMessage()+ Color.RESET);
 	            }
 	            controllPrint();
