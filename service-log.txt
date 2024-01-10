@@ -1,4 +1,0 @@
-Wed Jan 10 12:27:23 KST 2024::
-WARNING : 제목 - 'adad'로 Book을 찾을수 없습니다.
-Wed Jan 10 12:27:26 KST 2024::
-WARNING : 저자 - '31313'로 Book을 찾을수 없습니다.
