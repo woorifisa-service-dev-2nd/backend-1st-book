@@ -1,7 +1,8 @@
 package dev.bookservice;
 
 import java.util.Scanner;
-import java.util.logging.Logger;
+
+import org.apache.logging.log4j.Logger;
 
 import dev.bookservice.service.BookService;
 import dev.bookservice.util.Color;
@@ -12,12 +13,12 @@ public class BookServiceApplication {
     public static void main(String[] args) {
     	BookService bookService = null;
 
-	    Logger logger = new MyLogger().getLog();
+	    Logger logger = new MyLogger().getLogger();
     	   
     	try {
     	    bookService = new BookService();
     	} catch (Exception e) {
-    	    System.out.println( "파일 읽지 못했습니다. 애플리케이션이 종료됩니다.");
+    	    System.out.println("파일 읽지 못했습니다. 애플리케이션이 종료됩니다.");
     	    System.exit(0);
     	}
         
@@ -53,7 +54,7 @@ public class BookServiceApplication {
 	                    System.out.println("1, 2, 3 중에 입력해주세요.");
 	            }}
 	            catch(Exception e) {
-	             	logger.warning(e.getMessage());
+	             	logger.warn(e.getMessage());
 	            	System.out.println("\n"+Color.RED +e.getMessage()+ Color.RESET);
 	            }
 	            controllPrint();

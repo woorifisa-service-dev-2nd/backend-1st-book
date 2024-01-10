@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- log4j2 에 대한 환경설정 파일 - 로그 레벨, 파일 입출력할 것인지 , 로그 출력 포매팅 등 -->
+<Configuration name="Logging-config">
+	
+	<Appenders>
+		 <Console name="STDOUT" target="SYSTEM_OUT">
+		 	  <!--
+	 	      <ThresholdFilter level="INFO"/>  
+ 	          -->
+		 	 	<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+		 </Console>
+		 <RollingFile name="OUTFILE" fileName="service-log.txt" filePattern="/logs/$${date:yyyyMM}/app_%d{yyyyMMdd}-%i.log.gz">
+        	 <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+        	 <Policies>
+                <TimeBasedTriggeringPolicy interval="1" />
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <!--             
+            <ThresholdFilter level="ALL"/>    
+             -->
+        </RollingFile>    
+	</Appenders>
+	
+	<Loggers>
+		<!-- Root logger가 처리할 로그 이벤트의 최소 로그 레벨 -->
+		<Root level="INFO">
+			<AppenderRef ref="STDOUT" />	
+		    <AppenderRef ref="OUTFILE" />		
+		</Root>
+	</Loggers>
+</Configuration>
