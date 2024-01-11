@@ -12,8 +12,10 @@ public class BookRepository {
     private List<Book> bookList = new ArrayList<>();
   
     public BookRepository() {
-	    final BookInfoParser bookInfoParser = new BookInfoParser();
-	    bookList = bookInfoParser.parseFromTxtFileToBookList();
+//	    final BookInfoParser bookInfoParser = new BookInfoParser();
+//	    bookList = bookInfoParser.parseFromTxtFileToBookList();
+    	
+    	bookList = new BookInfoParser().parseFromTxtFileToBookList();
 	}
     
     public List<Book> getBookList() {

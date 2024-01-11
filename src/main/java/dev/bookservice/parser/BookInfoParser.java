@@ -1,21 +1,23 @@
 package dev.bookservice.parser;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
-import dev.bookservice.BookServiceApplication;
 import dev.bookservice.model.Book;
+import dev.bookservice.model.BookBuilder;
 
 public class BookInfoParser {
     private final String RESOURCES = "src/main/resources/";
    
+   
+    public BookInfoParser BookInfoParser() {
+    	return this;
+    }
+    
     public List<Book> parseFromTxtFileToBookList() {
     	  List<Book> bookList = new ArrayList<Book>();
     	  List<String> lines = new ArrayList<>();
@@ -45,8 +47,14 @@ public class BookInfoParser {
             String title = columns[0];
             String author = columns[1];
             int numberOfBook = Integer.parseInt(columns[2]);
-
-            bookList.add(new Book(title, author, numberOfBook));
+            
+//          bookList.add(new Book(title, author, numberOfBook));
+            bookList.add(new BookBuilder()
+            		.title(title)
+            		.author(author)
+            		.numberOfBook(numberOfBook)
+            		.build()
+            		);
         }
         return bookList;
     }
