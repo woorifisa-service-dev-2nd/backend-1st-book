@@ -3,13 +3,41 @@ package dev.bookservice.model;
 public class Book {
     private String title;
     private String author;
-//    private int price;
     private int numberOfBook;
+    
+    public Book() {
+    	
+    }
 
     public Book(String title, String author, int numberOfBook) {
         this.title = title;
         this.author = author;
         this.numberOfBook = numberOfBook;
+    }
+    
+    public static class Builder {
+    		private String title;
+    	    private String author;
+    	    private int numberOfBook;
+    	   
+    	    public Builder title(String title) {
+    	    	this.title = title;
+    	    	return this;
+    	    }
+    	    
+    	    public Builder author(String author) {
+    	    	this.author = author;
+    	    	return this;
+    	    }
+    	    
+    	    public Builder numberOfBook(int numberOfBook) {
+    	    	this.numberOfBook = numberOfBook;
+    	    	return this;
+    	    }
+    	    
+    	    public Book build() {
+    	    	return new Book(title, author, numberOfBook);
+    	    }
     }
 
     public String getTitle() {

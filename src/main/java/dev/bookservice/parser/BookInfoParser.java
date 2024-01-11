@@ -8,15 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.bookservice.model.Book;
-import dev.bookservice.model.BookBuilder;
 
 public class BookInfoParser {
     private final String RESOURCES = "src/main/resources/";
    
-   
-    public BookInfoParser BookInfoParser() {
-    	return this;
-    }
     
     public List<Book> parseFromTxtFileToBookList() {
     	  List<Book> bookList = new ArrayList<Book>();
@@ -49,12 +44,24 @@ public class BookInfoParser {
             int numberOfBook = Integer.parseInt(columns[2]);
             
 //          bookList.add(new Book(title, author, numberOfBook));
-            bookList.add(new BookBuilder()
+            
+//            Builder 클래스 만들고 할시
+//            bookList.add(new BookBuilder()
+//            		.title(title)
+//            		.author(author)
+//            		.numberOfBook(numberOfBook)
+//            		.build()
+//            		);
+            
+//          innder class 만들고 할시
+            bookList.add(new Book
+            		.Builder()
             		.title(title)
             		.author(author)
             		.numberOfBook(numberOfBook)
             		.build()
             		);
+            
         }
         return bookList;
     }

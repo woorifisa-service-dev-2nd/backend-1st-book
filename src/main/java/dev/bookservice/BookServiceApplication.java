@@ -23,7 +23,8 @@ public class BookServiceApplication {
     	}
         
         controllPrint();
-        Scanner sc = new Scanner(System.in,"Euc-kr");
+//        Scanner sc = new Scanner(System.in,"Euc-kr");
+        Scanner sc = new Scanner(System.in);
         while(true) {
             String input = sc.nextLine();
             try {
